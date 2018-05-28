@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<base href="/">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+	 crossorigin="anonymous">
+	<script src="js/angular.js"></script>
+	<script src="js/angular-route.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="js/my.js"></script>
+</head>
+
+<body ng-controller="MyCtrl">
+	<form>
+		<div class="form-row">
+			<div class="form-group col-5">
+					<h1 class="display-3">Contact us</h1>
+					<br>
+				<input type="text" class="form-control" placeholder="Your name" ng-model="contactForm.name" required>
+				<br>
+				<input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"  ng-model="contactForm.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+				<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+				<br>
+				<label for="comment">Your message:</label>
+				<textarea class="form-control" rows="4" maxlength="2000"  ng-model="contactForm.message" required></textarea>
+				<small class="form-text text-muted"  ng-model="sendResult">{{result}}</small>
+				<br>
+				<button type="submit" class="btn btn-primary" ng-click="SendMessage()" >Submit</button>
+			</div>
+		</div>
+		
+	</form>
+
+</body>
+
+</html>
